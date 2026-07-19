@@ -20,7 +20,7 @@
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
-            color: #4a3728; /* Màu nâu trầm giúp đọc nội dung rõ nét và ấm áp */
+            color: #4a3728; /* Màu nâu đậm tăng tối đa độ tương phản, dễ đọc */
         }
 
         h1, h2, h3, h4, .brand-font {
@@ -28,11 +28,11 @@
             font-weight: 700;
         }
 
-        /* Thẻ kính mờ dễ thương phối màu pastel ấm áp */
+        /* Thẻ kính mờ dễ thương phối màu pastel ấm áp giúp đọc nội dung siêu rõ nét */
         .glass-card {
-            background: rgba(253, 248, 242, 0.96);
-            backdrop-filter: blur(12px);
-            border: 2px solid rgba(223, 191, 167, 0.5);
+            background: rgba(253, 248, 242, 0.97);
+            backdrop-filter: blur(16px);
+            border: 2px solid rgba(223, 191, 167, 0.6);
             box-shadow: 0 10px 30px -5px rgba(124, 160, 188, 0.25);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -62,7 +62,20 @@
             animation: float-subtle 5s ease-in-out infinite;
         }
 
-        /* Tab hoạt động */
+        /* Tối ưu hóa phong cách nút bấm để cải thiện triệt để độ tương phản */
+        .tab-btn {
+            background-color: rgba(255, 255, 255, 0.9); /* Nền trắng sữa chống lóa nền tối */
+            color: #5c4033; /* Chữ nâu ấm nổi bật */
+            border: 2px solid #dfbfa7;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: #f0e1d2;
+            border-color: #7ca0bc;
+            transform: scale(1.02);
+        }
+
         .tab-btn.active {
             background-color: #7ca0bc;
             color: white;
@@ -195,19 +208,22 @@
 
         <!-- Nhật Ký Các Bài Tập -->
         <section id="projects" class="scroll-mt-24 space-y-6">
-            <div class="text-center space-y-1">
-                <h2 class="text-2xl font-extrabold text-[#5c4033]">Nhật Ký 6 Bài Tập Học Phần</h2>
-                <p class="text-xs text-[#5c4033]/80">Hãy click vào từng nút bài tập bên dưới để cùng khám phá câu chuyện học tập và những minh họa siêu sinh động của mình nha!</p>
-            </div>
+            <!-- Đưa toàn bộ tiêu đề và nút điều khiển vào một glass-card riêng để chống lóa nền hiệu quả -->
+            <div class="glass-card p-6 md:p-8 rounded-3xl space-y-6">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl font-extrabold text-[#5c4033]">Nhật Ký 6 Bài Tập Học Phần</h2>
+                    <p class="text-xs md:text-sm text-[#5c4033]/90">Hãy click vào từng nút bài tập bên dưới để cùng khám phá câu chuyện học tập và những minh họa siêu sinh động của mình nha!</p>
+                </div>
 
-            <!-- Các Nút Chuyển Đổi Bài Tập -->
-            <div class="flex flex-wrap justify-center gap-2 max-w-5xl mx-auto">
-                <button onclick="switchProject(1)" id="tab-btn-1" class="tab-btn active px-4 py-2 border-2 border-[#dfbfa7] rounded-full text-xs font-bold text-[#5c4033] transition-all">Bài 1: Thao tác tệp tin & thư mục</button>
-                <button onclick="switchProject(2)" id="tab-btn-2" class="tab-btn px-4 py-2 border-2 border-[#dfbfa7] rounded-full text-xs font-bold text-[#5c4033] transition-all">Bài 2: Tìm kiếm & đánh giá thông tin</button>
-                <button onclick="switchProject(3)" id="tab-btn-3" class="tab-btn px-4 py-2 border-2 border-[#dfbfa7] rounded-full text-xs font-bold text-[#5c4033] transition-all">Bài 3: Viết Prompt hiệu quả</button>
-                <button onclick="switchProject(4)" id="tab-btn-4" class="tab-btn px-4 py-2 border-2 border-[#dfbfa7] rounded-full text-xs font-bold text-[#5c4033] transition-all">Bài 4: Công cụ hợp tác nhóm</button>
-                <button onclick="switchProject(5)" id="tab-btn-5" class="tab-btn px-4 py-2 border-2 border-[#dfbfa7] rounded-full text-xs font-bold text-[#5c4033] transition-all">Bài 5: AI sáng tạo nội dung số</button>
-                <button onclick="switchProject(6)" id="tab-btn-6" class="tab-btn px-4 py-2 border-2 border-[#dfbfa7] rounded-full text-xs font-bold text-[#5c4033] transition-all">Bài 6: Sử dụng AI có trách nhiệm</button>
+                <!-- Các Nút Chuyển Đổi Bài Tập -->
+                <div class="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
+                    <button onclick="switchProject(1)" id="tab-btn-1" class="tab-btn active px-4 py-2 border-2 rounded-full text-xs font-bold transition-all">Bài 1: Thao tác tệp tin & thư mục</button>
+                    <button onclick="switchProject(2)" id="tab-btn-2" class="tab-btn px-4 py-2 border-2 rounded-full text-xs font-bold transition-all">Bài 2: Tìm kiếm & đánh giá thông tin</button>
+                    <button onclick="switchProject(3)" id="tab-btn-3" class="tab-btn px-4 py-2 border-2 rounded-full text-xs font-bold transition-all">Bài 3: Viết Prompt hiệu quả</button>
+                    <button onclick="switchProject(4)" id="tab-btn-4" class="tab-btn px-4 py-2 border-2 rounded-full text-xs font-bold transition-all">Bài 4: Công cụ hợp tác nhóm</button>
+                    <button onclick="switchProject(5)" id="tab-btn-5" class="tab-btn px-4 py-2 border-2 rounded-full text-xs font-bold transition-all">Bài 5: AI sáng tạo nội dung số</button>
+                    <button onclick="switchProject(6)" id="tab-btn-6" class="tab-btn px-4 py-2 border-2 rounded-full text-xs font-bold transition-all">Bài 6: Sử dụng AI có trách nhiệm</button>
+                </div>
             </div>
 
             <!-- Khung Hiển Thị Nội Dung Dự Án -->
@@ -500,7 +516,7 @@
                                     <p class="text-xs text-red-600">➔ Đầu ra: Rất dài dòng, liệt kê lộn xộn các phần, dễ bị trôi tuột các con số thống kê quan trọng nhất.</p>
                                     <hr class="border-dashed border-[#eadacc]">
                                     <p class="text-[10px] text-green-700 italic font-mono">[Tối ưu chuyên sâu] "[Role]: Bạn là chuyên gia nghiên cứu. [Task]: Hãy tóm tắt theo mô hình Executive Summary..."</p>
-                                    <p class="text-xs text-green-700">➔ Đầu ra: Bố cục khoa học cực kỳ rõ ràng, chia rõ bối cảnh, luận điểm then chốt và đưa số liệu vào bảng so sánh cực kỳ dễ nhìn.</p>
+                                    <p class="text-xs text-green-700">➔ Đầu ra: Tổng hợp bối cảnh khoa học rõ nét, phân luồng luận điểm và đưa số liệu vào bảng so sánh cực kỳ dễ nhìn.</p>
                                 </div>
 
                                 <!-- Tác vụ 2 -->
@@ -538,7 +554,7 @@
                         </div>
                     </div>
                 `,
-                takeaway: "Học cách thiết kế câu lệnh giúp mình biết cách tổ chức suy nghĩ mạch lạc hơn. Khi mình diễn đạt rõ ràng, cuộc sống xung quanh mình cũng trở nên hiệu quả hơn rất nhiều."
+                takeaway: "Tối ưu câu lệnh thực chất là tối ưu cách ta tư duy và tổ chức ngôn ngữ. Khi mình diễn đạt rõ ràng, cuộc sống xung quanh mình cũng trở nên hiệu quả hơn rất nhiều."
             },
             4: {
                 title: "Bài 4 - Bài tập 3 của mục 4.4: Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm",
@@ -756,7 +772,7 @@
                                 <div>
                                     <span class="px-2 py-0.5 bg-[#dfbfa7]/35 text-[#5c4033] rounded text-[10px] font-bold">Bước 1: Khởi tạo sườn ý tưởng</span>
                                     <p class="mt-1"><strong>Prompt nhập ChatGPT:</strong> "Tôi là sinh viên ngành Ngôn ngữ tại ULIS, đang viết tiểu luận môn Cơ sở văn hóa Việt Nam về đề tài 'Triết lý Âm Dương trong ẩm thực người Việt'. Hãy gợi ý một dàn ý chi tiết gồm 3 chương theo chuẩn học thuật."</p>
-                                    <p class="text-gray-500 italic">➔ Huyền tinh chỉnh: Dàn ý của AI hơi khuôn mẫu và khô khan. Mình quyết định giữ cấu trúc 3 chương nhưng bổ sung phần phân tách ẩm thực 3 miền Bắc - Trung - Nam dưới góc nhìn Âm Dương để làm nổi bật nét đẹp đặc trưng vùng miền của Việt Nam. Tham chiếu: <em>Cơ sở văn hóa Việt Nam</em> — GS. Trần Ngọc Thêm.</p>
+                                    <p class="text-gray-500 italic">➔ Huyền tinh chỉnh: Dàn ý của AI hơi khuôn mẫu và khô khan. Mình quyết định giữ cấu trúc 3 chương nhưng bổ sung phần phân tích ẩm thực 3 miền Bắc - Trung - Nam dưới góc nhìn Âm Dương để làm nổi bật nét đẹp đặc trưng vùng miền của Việt Nam. Tham chiếu: <em>Cơ sở văn hóa Việt Nam</em> — GS. Trần Ngọc Thêm.</p>
                                 </div>
                                 <hr class="border-[#eadacc]">
                                 <div>
@@ -800,7 +816,7 @@
                                 </div>
                                 <div class="bg-white/60 p-3 rounded-xl border border-[#eadacc] space-y-1">
                                     <p class="font-bold text-xs text-[#7ca0bc]">6. Nguyên tắc 'Bảo mật học đường'</p>
-                                    <p class="text-[10px] text-gray-600">Không đăng tải lên mô hình AI công cộng các tài liệu nội bộ, thông tin cá nhân hoặc đề thi chưa công bố của giảng viên.</p>
+                                    <p class="text-[10px] text-gray-600">Tuyệt đối không đăng tải lên mô hình AI công cộng các tài liệu nội bộ, thông tin cá nhân hoặc đề thi chưa công bố của giảng viên.</p>
                                 </div>
                             </div>
                         </div>
